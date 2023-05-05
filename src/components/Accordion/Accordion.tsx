@@ -6,21 +6,16 @@ type AccordionPropsType = {
 }
 
 function Accordion(props: AccordionPropsType) {
-  console.log('Accordion rendering');
+    console.log('Accordion rendering');
 
-  if (props.collapsed === true) {
     return (
-      <div>
-        <AccordionTitle title={ props.titleValue }/>
-        <AccordionBody />
-      </div>
+        <div>
+            <AccordionTitle title={ props.titleValue }/>
+            {!props.collapsed && <AccordionBody/>}
+            {/*  Если в пропсе пришло true, то отрисуется аккордион, так как сравнение идет дальше после оператора И  */}
+            {/*  Если же приходит false, то не рисуется, так как после оператора И дальше не идет, останавливается работа  */}
+        </div>
     )
-  }
-  return (
-    <div>
-      <AccordionTitle title={ props.titleValue }/>
-    </div>
-  )
 }
 
 type AccordionTitlePropsType = {

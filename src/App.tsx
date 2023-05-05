@@ -3,17 +3,16 @@ import './App.css';
 import Accordion from './components/Accordion/Accordion';
 import Rating from './components/Rating/Rating';
 
-function App() {
-  console.log('App rendering');
+function App(props: any) {
 
   return (
     <div className="App">
       <PageTitle title={ "This is APP Component" }/>
       <Accordion titleValue={ "Menu" } collapsed={true}/>
-      <Rating/>
+      <Rating value={3}/>
       <PageTitle title={ "My friends" }/>
       <Accordion titleValue={ "User" } collapsed={false}/>
-      <Rating />
+      <Rating value={5} />
     </div>
   );
 }
