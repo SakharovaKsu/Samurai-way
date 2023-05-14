@@ -4,12 +4,14 @@ import Accordion from './components/Accordion/Accordion';
 import Rating from './components/Rating/Rating';
 import OnOff from "./components/OnOff/OnOff";
 import SelfControllingAccordion from "./components/SelfControllingAccordion/SelfControllingAccordion";
+import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRating";
 
 function App(props: any) {
 
     return (
         <div className="App">
             <PageTitle title={ "This is APP Component" }/>
+            {/* контролируемый рейтинг, так как данные мы передаем здесь */}
             <Accordion titleValue={ "Menu" } collapsed={true}/>
             <Rating value={3}/>
             <PageTitle title={ "My friends" }/>
@@ -19,7 +21,9 @@ function App(props: any) {
             <OnOff/>
             <OnOff/>
 
+            {/* некотролируемый рейтинг аккорлион, так как данные передаем через стайт и меняем по клику */}
             <SelfControllingAccordion titleValue={'Profile'}/>
+            <UncontrolledRating />
     </div>
   );
 }

@@ -12,8 +12,7 @@ function SelfControllingAccordion(props: AccordionPropsType) {
     return (
         <div>
             <AccordionTitle title={ props.titleValue }/>
-            <button onClick={() => { setCollapsed(false)} }>+</button>
-            <button onClick={() => { setCollapsed(true)} }>-</button>
+            <button onClick={() => { setCollapsed(!collapsed)} }>+</button>
             {!collapsed && <AccordionBody/>}
             {/*  Если в пропсе пришло true, то отрисуется аккордион, так как сравнение идет дальше после оператора И  */}
             {/*  Если же приходит false, то не рисуется, так как после оператора И дальше не идет, останавливается работа  */}
