@@ -1,4 +1,6 @@
 .App {
+  width: 600px;
+  margin: 20px auto;
   text-align: center;
 }
 
@@ -43,4 +45,22 @@ ul {
 
 li {
   list-style-type: none;
+}
+
+button {
+  padding: 3px 5px;
+  border: none;
+  margin: 5px;
+  background-color: #0434d0;
+  border-radius: 3px;
+  color: #fff;
+}
+
+h3, h1 {
+  margin: 0 0 10px 0;
+}
+
+.box {
+  padding: 30px;
+  border: 2px solid #002349;
 }

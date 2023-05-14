@@ -10,20 +10,26 @@ function App(props: any) {
 
     return (
         <div className="App">
-            <PageTitle title={ "This is APP Component" }/>
-            {/* контролируемый рейтинг, так как данные мы передаем здесь */}
-            <Accordion titleValue={ "Menu" } collapsed={true}/>
-            <Rating value={3}/>
-            <PageTitle title={ "My friends" }/>
-            <Accordion titleValue={ "User" } collapsed={false}/>
-            <Rating value={5} />
+            <div className={'box'}>
+                <PageTitle title={ "This is APP Component" }/>
+                {/* контролируемый рейтинг, так как данные мы передаем здесь */}
+                <Accordion titleValue={ "Menu" } collapsed={true}/>
+                <Rating value={3}/>
+                <PageTitle title={ "My friends" }/>
+                <Accordion titleValue={ "User" } collapsed={false}/>
+                <Rating value={5} />
+            </div>
 
-            <OnOff/>
-            <OnOff/>
+            <div className={'box'}>
+                <OnOff/>
+                <OnOff/>
+            </div>
 
-            {/* некотролируемый рейтинг аккорлион, так как данные передаем через стайт и меняем по клику */}
-            <SelfControllingAccordion titleValue={'Profile'}/>
-            <UncontrolledRating />
+            <div className={'box'}>
+                {/* некотролируемый рейтинг аккорлион, так как данные передаем через стайт и меняем по клику */}
+                <SelfControllingAccordion titleValue={'Profile'}/>
+                <UncontrolledRating />
+            </div>
     </div>
   );
 }
