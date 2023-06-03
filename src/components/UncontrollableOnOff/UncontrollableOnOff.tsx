@@ -8,7 +8,7 @@ import React, {useState} from 'react';
 
 // если отрисовываем компонент несколько раз в App, то у каждого компонента будет свой state со своим значение, не смотря на то, что мы продублировали компонент
 
-const UncontrollableOnOff = (props: any) => {
+const UncontrollableOnOff = () => {
     console.log('onOff rendering')
 
     const [on, setOn] = useState(false)
