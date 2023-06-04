@@ -2,7 +2,7 @@ import React from "react";
 import UncontrollableOnOff from "./UncontrollableOnOff";
 
 export default {
-    title: 'UncontrollableOnOff',
+    title: 'OnOff/UncontrollableOnOff',
     component: UncontrollableOnOff,
 }
 

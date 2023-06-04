@@ -1,7 +1,7 @@
 import React from 'react';
 
 // компонент для объяснения state
-type PropsType = {
+export type PropsType = {
     on: boolean
     onChange: (on: boolean) => void
 }
