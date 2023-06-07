@@ -1,4 +1,5 @@
-import {useRef, useState} from "react";
+import {ChangeEvent, useRef, useState} from "react";
+import {action} from "@storybook/addon-actions";
 
 export default {
   title: 'input',
@@ -49,7 +50,31 @@ export const GetValueOfUncontrolledInputByButtonPress = () => {
     )
 }
 
-export const ControlledInput = () => <input value={'component'}/>
+export const ControlledInput = () => {
+    const [parentValue, setParentValue] = useState('')
+
+    const inputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const value = e.currentTarget.value // получаем значение
+        setParentValue(value) // сетаем его
+    }
+
+    return (
+        <input value={parentValue} onChange={inputChange}/>
+    )
+}
+
+export const ControlledCheckbox = () => {
+    const [parentCheckbox, setParentCheckbox] = useState(false)
+
+    const checkboxChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const valueCheckbox = e.currentTarget.checked
+        setParentCheckbox(valueCheckbox)
+    }
+
+    return (
+        <input type={"checkbox"} checked={parentCheckbox} onChange={checkboxChange}/>
+    )
+}
 
 
 // Почему плохая практика использовать useRef на input? Если компонент перерисовывается и повторно монтирует элемент input, useRef может сохранять старую ссылку на input, вместо того, чтобы создать новую ссылку на новый элемент input. Это может привести к непредсказуемому поведению компонента, например, к тому, что изменения в input не будут отображаться на экране.
