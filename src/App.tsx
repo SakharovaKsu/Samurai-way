@@ -19,10 +19,10 @@ function App(props: any) {
                 <PageTitle title={ "This is APP Component" }/>
 
                 {/* контролируемый рейтинг, так как данные мы передаем здесь */}
-                <Accordion titleValue={ "Menu" } collapsed={accordionCollapsed} onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}/>
+                <Accordion titleValue={ "Menu" } collapsed={accordionCollapsed} onChange={() => {setAccordionCollapsed(!accordionCollapsed)}} items={[]}/>
                 <Rating value={ratingValue} onClick={setRatingValue}/>
                 <PageTitle title={ "My friends" }/>
-                <Accordion titleValue={ "User" } collapsed={accordionCollapsed} onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}/>
+                <Accordion titleValue={ "User" } collapsed={accordionCollapsed} onChange={() => {setAccordionCollapsed(!accordionCollapsed)}} items={[]}/>
 
                 {/* on={switchOn} по умолчанию выключен*/}
                 {/* Здесь в onChange передается булево значение от ребенка к родителю */}

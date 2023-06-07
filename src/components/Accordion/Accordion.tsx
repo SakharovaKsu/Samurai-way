@@ -1,5 +1,10 @@
 import React from 'react';
 
+export type ItemsType = {
+    title: string
+    value: any
+}
+
 export type AccordionPropsType = {
     titleValue: string
     collapsed: boolean
@@ -8,16 +13,18 @@ export type AccordionPropsType = {
      * optional color oh header text
      */
     color?: string
-    // collapsed: boolean
+    items: ItemsType[]
+    onClick: () => void
 }
+
 
 function Accordion(props: AccordionPropsType) {
     console.log('Accordion rendering');
 
     return (
         <div>
-            <AccordionTitle color={props.color} title={props.titleValue} onChange={props.onChange}/>
-            {props.collapsed && <AccordionBody/>}
+            <AccordionTitle color={props.color} title={props.titleValue} onChange={props.onChange} />
+            {props.collapsed && <AccordionBody items={props.items} onClick={props.onClick}/>}
             {/*  Если в пропсе пришло true, то отрисуется аккордион, так как сравнение идет дальше после оператора И  */}
             {/*  Если же приходит false, то не рисуется, так как после оператора И дальше не идет, останавливается работа  */}
         </div>
@@ -37,14 +44,21 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     return <h3 style={{color: props.color ? props.color : 'black'}} onClick={props.onChange}>{props.title}</h3>
 }
 
-function AccordionBody() {
+type AccordionBodyType = {
+    items: ItemsType[]
+    onClick: (value: any) => void
+}
+
+function AccordionBody(props: AccordionBodyType) {
     console.log('AccordionBody rendering');
 
+    // с index нужно быть аккуратным, так как могут быть ошибки (конфликты в реакте), стоит использовать когда массив не меняется
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {props.items.map( (i, index) =>
+                <li onClick={() => {props.onClick(i.value)}}
+                    key={i.value}> {i.title}
+                </li>)}
         </ul>
     )
 }
