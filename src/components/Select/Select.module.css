@@ -1,5 +1,29 @@
-.select {
+.select span {
+    display: inline-block;
+    position: relative;
     border: 2px solid #ff00e6;
-    max-width: 200px;
+    width: 200px;
+    height: 20px;
     padding: 5px;
+}
+
+.title {
+    margin: 0;
+}
+
+.items {
+    position: absolute;
+    top: 47px;
+    width: 200px;
+    border: 2px solid #ff00e6;
+}
+
+.item {
+    padding: 5px;
+}
+
+.item.selected {
+    padding: 5px;
+    background-color: #ff00e6;
+    color: #ffffff;
 }

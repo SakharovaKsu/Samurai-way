@@ -1,8 +1,5 @@
 import React, {useState} from "react";
-import {StoryFn} from "@storybook/react";
-import {SelectType} from "./Select";
 import {ListsType} from "../../App";
-import {action} from "@storybook/addon-actions";
 import Select2 from "./Select-2";
 
 
@@ -30,13 +27,17 @@ const lists: ListsType[] = [
 // }
 
 export const BaseExample = () => {
+    const [value, setValue] = useState('1')
+
     return (
-        <Select2 onChange={action('Value change')} value={'2'} lists={lists} />
+        <Select2 onChange={setValue} value={value} lists={lists} />
     )
 }
 
 export const WithoutValue = () => {
+    const [value, setValue] = useState('')
+
     return (
-        <Select2 onChange={action('Value change')} lists={lists} />
+        <Select2 onChange={setValue} value={value} lists={lists} />
     )
 }
