@@ -8,6 +8,7 @@ import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRati
 import OnOff from "./components/OnOff/OnOff";
 import {items} from "./components/Accordion/Accordion.stories";
 import Select from "./components/Select/Select";
+import Select2 from "./components/Select/Select-2";
 
 export type DropdownStateType = {
     open: boolean
@@ -24,6 +25,7 @@ function App(props: any) {
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
     const [switchOn, setSwitchOn] = useState<boolean>(false)
     const [dropdownState, setDropdownState] = useState<DropdownStateType>({ open: false })
+    const [value, setValue] = useState('1')
 
     const lists: ListsType[] = [
         {id: '1', title: 'Sort'},
@@ -82,6 +84,7 @@ function App(props: any) {
 
 
             <Select value={'1'} buttonOnClickHandler={buttonOnClickHandler} lists={lists} dropdownState={dropdownState}/>
+            <Select2 onChange={setValue} lists={lists} value={value}/>
     </div>
   );
 }

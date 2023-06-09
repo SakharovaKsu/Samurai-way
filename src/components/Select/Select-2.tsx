@@ -41,7 +41,7 @@ const Select2 = (props: Select2Type) => {
     return (
         // <div className={s.select} onKeyUp={onKeyUp} tabIndex={0}>
         <div className={s.select}>
-            <span onClick={toggleItems}>{selectItems && selectItems.title}</span>
+            <span className={s.title} onClick={toggleItems}>{selectItems && selectItems.title}</span>
             {active &&
                 <div className={s.items}>
                     {props.lists.map(i =>

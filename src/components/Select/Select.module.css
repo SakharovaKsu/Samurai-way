@@ -1,25 +1,31 @@
+.select {
+    position: relative;
+    text-align: center;
+}
+
 .select span {
     display: inline-block;
-    position: relative;
     border: 2px solid #ff00e6;
     width: 200px;
     height: 20px;
     padding: 5px;
 }
 
-.title {
-    margin: 0;
-}
-
 .items {
     position: absolute;
-    top: 47px;
-    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 32px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 210px;
     border: 2px solid #ff00e6;
 }
 
 .item {
     padding: 5px;
+    border-bottom: 2px solid rgba(255, 0, 230, 0.28);
 }
 
 .item.selected {
