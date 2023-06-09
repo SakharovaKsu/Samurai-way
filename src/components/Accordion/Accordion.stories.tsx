@@ -22,7 +22,7 @@ export default {
 // args это какие-то пропсы, которые к нам приходят, что бы их много не плодить, используем сокращенную запись {...args}
 const Template: StoryFn<AccordionPropsType> = (args) => <Accordion {...args} />
 
-const items= [
+export const items= [
     {title: 'Book', value: 1},
     {title: 'Milk', value: 2},
     {title: 'Sandwich', value: 3}

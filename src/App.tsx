@@ -6,23 +6,61 @@ import UncontrollableOnOff from "./components/UncontrollableOnOff/Uncontrollable
 import SelfControllingAccordion from "./components/SelfControllingAccordion/SelfControllingAccordion";
 import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRating";
 import OnOff from "./components/OnOff/OnOff";
+import {items} from "./components/Accordion/Accordion.stories";
+import Select from "./components/Select/Select";
+
+export type DropdownStateType = {
+    open: boolean
+}
+
+export type ListsType = {
+    id: string
+    title: string
+}
 
 function App(props: any) {
 
     const [ratingValue, setRatingValue] = useState<RatingValueType>(4)
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
     const [switchOn, setSwitchOn] = useState<boolean>(false)
+    const [dropdownState, setDropdownState] = useState<DropdownStateType>({ open: false })
 
+    const lists: ListsType[] = [
+        {id: '1', title: 'Sort'},
+        {id: '2', title: 'Popular'},
+        {id: '3', title: 'By rating'},
+        {id: '4', title: 'Minimum price'},
+        {id: '5', title: 'Maximum price'}
+    ]
+
+    const buttonOnClickHandler = () => {
+        setDropdownState({open: !dropdownState.open })
+    }
+
+    const onClickAccordion = (id: void) => {
+        alert(`user with ID ${id} should be happy`)
+    }
     return (
         <div className="App">
             <div className={'box'}>
                 <PageTitle title={ "This is APP Component" }/>
 
                 {/* контролируемый рейтинг, так как данные мы передаем здесь */}
-                <Accordion titleValue={ "Menu" } collapsed={accordionCollapsed} onChange={() => {setAccordionCollapsed(!accordionCollapsed)}} items={[]}/>
+                <Accordion titleValue={ "Menu" }
+                           collapsed={accordionCollapsed}
+                           onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
+                           items={items}
+                           onClick={onClickAccordion}/>
+
                 <Rating value={ratingValue} onClick={setRatingValue}/>
+
                 <PageTitle title={ "My friends" }/>
-                <Accordion titleValue={ "User" } collapsed={accordionCollapsed} onChange={() => {setAccordionCollapsed(!accordionCollapsed)}} items={[]}/>
+
+                <Accordion titleValue={ "User" }
+                           collapsed={accordionCollapsed}
+                           onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
+                           items={items}
+                           onClick={onClickAccordion}/>
 
                 {/* on={switchOn} по умолчанию выключен*/}
                 {/* Здесь в onChange передается булево значение от ребенка к родителю */}
@@ -41,6 +79,9 @@ function App(props: any) {
                 <SelfControllingAccordion titleValue={'Profile'}/>
                 <UncontrolledRating />
             </div>
+
+
+            <Select value={'1'} buttonOnClickHandler={buttonOnClickHandler} lists={lists} dropdownState={dropdownState}/>
     </div>
   );
 }
