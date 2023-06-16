@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useReducer, useState} from 'react';
+import {reducer} from "./reduce";
 
 type AccordionPropsType = {
     titleValue: string
@@ -12,11 +13,13 @@ type AccordionTitlePropsType = {
 function SelfControllingAccordion(props: AccordionPropsType) {
     console.log('Accordion rendering');
 
-    const [collapsed, setCollapsed] = useState(true)
+    // const [collapsed, setCollapsed] = useState(true)
+    const [collapsed, dispatch] = useReducer(reducer, false)
 
     return (
         <div>
-            <AccordionTitle title={props.titleValue} onClick={() => {setCollapsed(!collapsed)}}/>
+            {/*<AccordionTitle title={props.titleValue} onClick={() => {setCollapsed(!collapsed)}}/>*/}
+            <AccordionTitle title={props.titleValue} onClick={() => {dispatch({type: 'TOGGLE-COLLAPSED'})}}/>
             {/*<button onClick={() => {setCollapsed(!collapsed)}}>+</button>*/}
             {!collapsed && <AccordionBody/>}
             {/*  Если в пропсе пришло true, то отрисуется аккордион, так как сравнение идет дальше после оператора И  */}
