@@ -58,12 +58,6 @@ function App(props: any) {
 
                 <PageTitle title={ "My friends" }/>
 
-                <Accordion titleValue={ "User" }
-                           collapsed={accordionCollapsed}
-                           onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
-                           items={items}
-                           onClick={onClickAccordion}/>
-
                 {/* on={switchOn} по умолчанию выключен*/}
                 {/* Здесь в onChange передается булево значение от ребенка к родителю */}
                 <OnOff on={switchOn} onChange={(on) => setSwitchOn(on)}/>
