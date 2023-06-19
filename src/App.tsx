@@ -9,6 +9,7 @@ import OnOff from "./components/OnOff/OnOff";
 import {items} from "./components/Accordion/Accordion.stories";
 import Select from "./components/Select/Select";
 import Select2 from "./components/Select/Select-2";
+import AppTodoList from "./components/TodoList/AppTodoList";
 
 export type DropdownStateType = {
     open: boolean
@@ -79,6 +80,8 @@ function App(props: any) {
 
             <Select value={'1'} buttonOnClickHandler={buttonOnClickHandler} lists={lists} dropdownState={dropdownState}/>
             <Select2 onChange={setValue} lists={lists} value={value}/>
+
+            <AppTodoList />
     </div>
   );
 }
