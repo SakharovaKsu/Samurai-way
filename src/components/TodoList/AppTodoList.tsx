@@ -3,6 +3,7 @@ import './App.css';
 import {Todolist} from './TooList';
 import {v1} from 'uuid';
 import {addTasksAC, changeStatusAC, removeTaskAC, tasksReducer} from "./stateReducer";
+import {changeFilterAC, filterReducer} from "./filterReducer";
 
 export type FilterValuesType = "all" | "active" | "completed";
 
@@ -15,7 +16,7 @@ function AppTodoList() {
         {id: v1(), title: "Rest API", isDone: false},
         {id: v1(), title: "GraphQL", isDone: false},
     ]);
-    let [filter, setFilter] = useState<FilterValuesType>("all");
+    let [filter, dispatchFilter] = useReducer(filterReducer, "all");
 
 
     function removeTask(id: string) {
@@ -32,14 +33,13 @@ function AppTodoList() {
     }
 
     function changeStatus(taskId: string, isDone: boolean) {
-        let task = tasks.find(t => t.id === taskId);
-        if (task) {
-            task.isDone = isDone;
-        }
+        // let task = tasks.find(t => t.id === taskId);
+        // if (task) {
+        //     task.isDone = isDone;
+        // }
         // setTasks([...tasks]);
         dispatchTasks(changeStatusAC(taskId, isDone))
     }
-
 
     let tasksForTodolist = tasks;
 
@@ -51,7 +51,8 @@ function AppTodoList() {
     }
 
     function changeFilter(value: FilterValuesType) {
-        setFilter(value);
+        dispatchFilter(changeFilterAC(value))
+        // setFilter(value);
     }
 
 
