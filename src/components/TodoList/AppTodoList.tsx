@@ -1,6 +1,5 @@
 import React, {useReducer, useState} from 'react';
-import './App.css';
-import {Todolist} from './TooList';
+import {Todolist} from './TodoList';
 import {v1} from 'uuid';
 import {addTasksAC, changeStatusAC, removeTaskAC, tasksReducer} from "./stateReducer";
 import {changeFilterAC, filterReducer} from "./filterReducer";
@@ -57,7 +56,7 @@ function AppTodoList() {
 
 
     return (
-        <div className="App">
+        <div>
             <Todolist title="What to learn"
                       tasks={tasksForTodolist}
                       removeTask={removeTask}

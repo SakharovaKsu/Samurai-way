@@ -44,7 +44,7 @@ function App(props: any) {
         alert(`user with ID ${id} should be happy`)
     }
     return (
-        <div className="App">
+        <div className={'App'}>
             <div className={'box'}>
                 <PageTitle title={ "This is APP Component" }/>
 

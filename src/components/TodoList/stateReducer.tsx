@@ -1,5 +1,5 @@
-import {TaskType} from "./TooList";
 import {v1} from "uuid";
+import {TaskType} from './TodoList';
 
 export const tasksReducer = (state: TaskType[], action: TsarType): TaskType[] => {
     switch (action.type) {
