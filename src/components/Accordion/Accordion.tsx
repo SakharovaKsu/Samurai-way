@@ -49,7 +49,9 @@ type AccordionBodyType = {
     onClick: (value: any) => void
 }
 
-function AccordionBody(props: AccordionBodyType) {
+const AccordionBody = React.memo(AccordionBodySecret)
+
+function AccordionBodySecret(props: AccordionBodyType) {
     console.log('AccordionBody rendering');
 
     // с index нужно быть аккуратным, так как могут быть ошибки (конфликты в реакте), стоит использовать когда массив не меняется

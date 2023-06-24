@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {ListsType} from "../../App";
-import Select2 from "./Select-2";
+import {Select2} from './Select-2';
+
 
 export default {
     title: 'Select/Select',

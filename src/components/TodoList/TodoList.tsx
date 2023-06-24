@@ -17,7 +17,7 @@ type PropsType = {
     filter: FilterValuesType
 }
 
-export function Todolist(props: PropsType) {
+export function TodolistSecret(props: PropsType) {
 
     let [title, setTitle] = useState("")
     let [error, setError] = useState<string | null>(null)
@@ -83,3 +83,5 @@ export function Todolist(props: PropsType) {
         </div>
     </div>
 }
+
+export const Todolist = React.memo(TodolistSecret)

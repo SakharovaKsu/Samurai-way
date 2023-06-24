@@ -2,13 +2,13 @@ import React, {useState, KeyboardEvent} from 'react';
 import {ListsType} from "../../App";
 import  s from "./Select.module.css"
 
-type Select2Type = {
+type SelectSecretType = {
     value?: string
     onChange: (value: string) => void
     lists: ListsType[]
 }
 
-const Select2 = (props: Select2Type) => {
+export const SelectSecret = (props: SelectSecretType) => {
     const [active, setActive] = useState(false)
     const [hoverElementValue, setHoverElementValue] = useState(props.value)
 
@@ -57,4 +57,4 @@ const Select2 = (props: Select2Type) => {
     );
 };
 
-export default Select2;
+export const Select2 = React.memo(SelectSecret)

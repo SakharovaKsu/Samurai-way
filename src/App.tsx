@@ -8,8 +8,8 @@ import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRati
 import OnOff from "./components/OnOff/OnOff";
 import {items} from "./components/Accordion/Accordion.stories";
 import Select from "./components/Select/Select";
-import Select2 from "./components/Select/Select-2";
 import AppTodoList from "./components/TodoList/AppTodoList";
+import {Select2} from './components/Select/Select-2';
 
 export type DropdownStateType = {
     open: boolean

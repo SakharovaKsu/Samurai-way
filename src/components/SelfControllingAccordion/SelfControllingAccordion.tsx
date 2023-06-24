@@ -1,5 +1,6 @@
 import React, {useReducer, useState} from 'react';
 import {reducer, StateType, TOGGLE_COLLAPSED} from "./reducer";
+import {SelectSecret} from '../Select/Select-2';
 
 type AccordionPropsType = {
     titleValue: string
@@ -39,7 +40,9 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     return <h3 onClick={props.onClick}>{props.title}</h3>
 }
 
-function AccordionBody() {
+const AccordionBody = React.memo(AccordionBodySecret)
+
+function AccordionBodySecret() {
     console.log('AccordionBody rendering');
 
     const items = ['Contacts', 'Music', 'Messages', 'Settings']
