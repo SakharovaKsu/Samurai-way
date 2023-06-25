@@ -4,7 +4,7 @@ export default {
     title: 'React.memo demo'
 }
 
-type UsersProps = {
+export type UsersProps = {
     users: Array<any>
 }
 

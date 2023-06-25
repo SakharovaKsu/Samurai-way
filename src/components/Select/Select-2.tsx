@@ -14,7 +14,7 @@ export const SelectSecret = (props: SelectSecretType) => {
 
     const selectItems = props.lists.find(i => i.id === props.value)
 
-    console.log(selectItems)
+    // console.log(selectItems)
 
     const hoverItem = props.lists.find(i => i.id === hoverElementValue)
 
