@@ -9,7 +9,7 @@ export const filterReducer = (state: FilterValuesType, action: ChangeFilterType)
     }
 }
 
-type ChangeFilterType = ReturnType<typeof changeFilterAC>
+export type ChangeFilterType = ReturnType<typeof changeFilterAC>
 
 export const changeFilterAC = (value: FilterValuesType) => {
     return{
